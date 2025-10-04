@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap');
+/* Updated: 2025-10-04T14:31:31.837Z */
+/* Updated: 2025-10-04T14:31:18.504Z */
+/* Updated: 2025-10-04T14:29:26.711Z */
+/* Updated: 2025-10-04T14:26:46.145Z */
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -120,73 +123,212 @@
   body {
     @apply bg-background text-foreground;
   }
-  
-  @keyframes scanline {
+
+  /* Cosmic Background */
+  .cosmic-background {
+    background: linear-gradient(135deg, #0a0e1a 0%, #1a1b3d 50%, #0d1829 100%);
+    position: relative;
+  }
+
+  .cosmic-background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(2px 2px at 20% 30%, white, transparent),
+      radial-gradient(2px 2px at 60% 70%, white, transparent),
+      radial-gradient(1px 1px at 50% 50%, white, transparent),
+      radial-gradient(1px 1px at 80% 10%, white, transparent),
+      radial-gradient(2px 2px at 90% 60%, white, transparent),
+      radial-gradient(1px 1px at 33% 80%, white, transparent);
+    background-size: 200% 200%;
+    animation: stars 20s ease-in-out infinite;
+    opacity: 0.5;
+  }
+
+  @keyframes stars {
+    0%, 100% {
+      background-position: 0% 0%, 10% 10%, 20% 20%, 30% 30%, 40% 40%, 50% 50%;
+    }
+    50% {
+      background-position: 100% 100%, 90% 90%, 80% 80%, 70% 70%, 60% 60%, 50% 50%;
+    }
+  }
+
+  /* Holographic Border */
+  .holographic-border {
+    background: linear-gradient(45deg, #00d9ff, #7b2cbf, #00d9ff, #7b2cbf);
+    background-size: 400% 400%;
+    animation: holographic 3s ease infinite;
+  }
+
+  @keyframes holographic {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Metallic Text */
+  .metallic-text {
+    background: linear-gradient(180deg, #e8e8e8 0%, #a0a0a0 50%, #686868 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+  }
+
+  /* Repulsor Button */
+  .repulsor-button {
+    background: linear-gradient(135deg, #00a8e8 0%, #0077b6 100%);
+    box-shadow: 0 0 20px rgba(0, 168, 232, 0.5);
+    position: relative;
+  }
+
+  .repulsor-button:hover {
+    box-shadow: 0 0 40px rgba(0, 168, 232, 0.8), 0 0 60px rgba(0, 168, 232, 0.4);
+  }
+
+  .repulsor-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+    animation: pulse-glow 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.2);
+    }
+  }
+
+  /* Scan Lines */
+  .scan-lines {
+    position: relative;
+  }
+
+  .scan-lines::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 217, 255, 0.1) 50%,
+      transparent 100%
+    );
+    background-size: 100% 4px;
+    animation: scan 2s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes scan {
     0% {
       transform: translateY(-100%);
     }
     100% {
-      transform: translateY(100vh);
+      transform: translateY(100%);
     }
   }
-  
-  @keyframes glitch {
+
+  /* Classified Stamp */
+  .classified-stamp {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #dc2626;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    border: 4px solid #dc2626;
+    padding: 1rem 2rem;
+    transform: rotate(-15deg);
+    opacity: 0.8;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Tesseract Shard */
+  .tesseract-shard {
+    background: linear-gradient(135deg, #00d9ff, #7b2cbf, #00d9ff);
+    background-size: 200% 200%;
+    animation: tesseract-glow 3s ease-in-out infinite;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    filter: drop-shadow(0 0 30px rgba(0, 217, 255, 0.8));
+    opacity: 0.6;
+  }
+
+  @keyframes tesseract-glow {
     0%, 100% {
-      transform: translate(0);
-      opacity: 1;
-    }
-    25% {
-      transform: translate(-2px, 2px);
-      opacity: 0.8;
+      background-position: 0% 50%;
+      filter: drop-shadow(0 0 30px rgba(0, 217, 255, 0.8));
     }
     50% {
-      transform: translate(2px, -2px);
-      opacity: 0.9;
-    }
-    75% {
-      transform: translate(-2px, -2px);
-      opacity: 0.7;
+      background-position: 100% 50%;
+      filter: drop-shadow(0 0 50px rgba(123, 44, 191, 0.8));
     }
   }
-  
-  @keyframes fingerprint {
-    0% {
-      transform: scale(0.8);
-      opacity: 0;
-    }
-    50% {
-      transform: scale(1.1);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
+
+  /* Tesseract Burst */
+  .tesseract-burst {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #00d9ff 0%, #7b2cbf 50%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(20px);
+    box-shadow: 
+      0 0 100px rgba(0, 217, 255, 0.8),
+      0 0 200px rgba(123, 44, 191, 0.6),
+      0 0 300px rgba(0, 217, 255, 0.4);
   }
-  
-  @keyframes glow-pulse {
+
+  /* Marvel Title */
+  .marvel-title {
+    text-shadow: 
+      0 0 10px rgba(0, 217, 255, 0.8),
+      0 0 20px rgba(0, 217, 255, 0.6),
+      0 0 30px rgba(0, 217, 255, 0.4),
+      2px 2px 4px rgba(0, 0, 0, 0.8);
+    animation: title-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes title-glow {
     0%, 100% {
-      box-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+      text-shadow: 
+        0 0 10px rgba(0, 217, 255, 0.8),
+        0 0 20px rgba(0, 217, 255, 0.6),
+        0 0 30px rgba(0, 217, 255, 0.4),
+        2px 2px 4px rgba(0, 0, 0, 0.8);
     }
     50% {
-      box-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+      text-shadow: 
+        0 0 20px rgba(0, 217, 255, 1),
+        0 0 40px rgba(0, 217, 255, 0.8),
+        0 0 60px rgba(0, 217, 255, 0.6),
+        2px 2px 4px rgba(0, 0, 0, 0.8);
     }
   }
-  
-  .scanline {
-    animation: scanline 8s linear infinite;
+
+  /* Leaderboard Widget */
+  .leaderboard-widget {
+    box-shadow: 
+      0 0 30px rgba(0, 217, 255, 0.3),
+      inset 0 0 20px rgba(0, 217, 255, 0.1);
+    animation: float 3s ease-in-out infinite;
   }
-  
-  .glitch {
-    animation: glitch 0.3s ease-in-out;
-  }
-  
-  .fingerprint-scan {
-    animation: fingerprint 0.5s ease-out;
-  }
-  
-  .glow-pulse {
-    animation: glow-pulse 2s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
 }
 
