@@ -1,5 +1,5 @@
-import { MarvelHeroGallery } from "@/components/MarvelHeroGallery"
+import ShieldLoginPortal from "@/components/ShieldLoginPortal";
 
 export default function Home() {
-  return <MarvelHeroGallery />
+  return <ShieldLoginPortal />;
 }
